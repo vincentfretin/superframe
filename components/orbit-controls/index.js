@@ -1,5 +1,5 @@
-import { OrbitControls } from './lib/OrbitControls.js';
-THREE.OrbitControls = OrbitControls
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+THREE.OrbitControls = OrbitControls;
 
 var bind = AFRAME.utils.bind;
 
