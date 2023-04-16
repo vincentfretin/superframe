@@ -1,11 +1,12 @@
 // Karma configuration.
+var path = require('path');
+var webpackConfiguration = require("../webpack.config.js");
+webpackConfiguration.output.path = path.resolve(__dirname, '../../../build')
+
 module.exports = function (config) {
   config.set({
     basePath: '../',
-    browserify: {
-      debug: true,
-      paths: ['./']
-    },
+    webpack: webpackConfiguration,
     browsers: ['Firefox', 'Chrome'],
     client: {
       captureConsole: true,
@@ -18,8 +19,8 @@ module.exports = function (config) {
       // Serve test assets.
       {pattern: 'tests/assets/**/*', included: false, served: true}
     ],
-    frameworks: ['mocha', 'sinon-chai', 'chai-shallow-deep-equal', 'browserify'],
-    preprocessors: {'tests/**/*.js': ['browserify', 'env']},
+    frameworks: ['mocha', 'sinon-chai', 'chai-shallow-deep-equal', 'webpack'],
+    preprocessors: {'tests/**/*.js': ['webpack', 'env']},
     reporters: ['mocha']
   });
 };
