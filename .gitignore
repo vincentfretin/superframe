@@ -24,6 +24,9 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
+# karma-webpack build folder used during tests
+build
+
 # Dependency directory
 node_modules
 
